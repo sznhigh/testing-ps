@@ -6,15 +6,20 @@
     </head>
     <body style="margin:0">
 		<img src="score.png">
+        <script>
+            function scale_to_screen()
+            {
+                var siteWidth = 1920;
+                var scale = screen.width / siteWidth;
+                console.log('screen.width='+screen.width+', scale='+scale);
+                const param = new URLSearchParams(location.search);
+                if (param.get('type') == 1)
+                    document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
+                else
+                    document.body.style.zoom = scale;
+            }
+            window.onload = scale_to_screen;
+            window.onresize = scale_to_screen;
+        </script>
     </body>
-    <script>
-        function scale_to_screen()
-        {
-            var siteWidth = 1920;
-            var scale = screen.width / siteWidth;
-            document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
-        }
-        scale_to_screen();
-        window.onresize += scale_to_screen;
-    </script>
 </html>
