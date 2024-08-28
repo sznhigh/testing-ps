@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=1920, initial-scale=1">
+    </head>
+    <body style="margin:0">
+		<img src="score.png">
+    </body>
+    <script>
+        function scale_to_screen()
+        {
+            var siteWidth = 1920;
+            var scale = screen.width / siteWidth;
+            document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
+        }
+        window.onresize += scale_to_screen;
+    </script>
+</html>
